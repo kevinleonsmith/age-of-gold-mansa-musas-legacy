@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Generate economy sprites for Age of Gold (Pillow): a camel caravan with
 trade bundles, a trade post (tents + stall) and a gold ingot icon.
-Output: Age of Gold Game/assets/economy/. Deterministic."""
+Output: assets/economy/. Deterministic."""
 import os
 
 from PIL import Image, ImageDraw
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Age of Gold Game")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(ROOT, "assets", "economy")
 
 OUT = (30, 20, 12, 255)  # dark outline

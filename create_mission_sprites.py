@@ -2,12 +2,12 @@
 """Generate campaign sprites for Age of Gold (Pillow): the large Hajj caravan
 (camel train with a canopied litter and gold chests) and city skyline markers
 for Niani, Walata, Cairo and Mecca.
-Output: Age of Gold Game/assets/missions/. Deterministic."""
+Output: assets/missions/. Deterministic."""
 import os
 
 from PIL import Image, ImageDraw
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Age of Gold Game")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(ROOT, "assets", "missions")
 
 OUT = (30, 20, 12, 255)  # dark outline

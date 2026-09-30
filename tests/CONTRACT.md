@@ -1,7 +1,7 @@
 # Age of Gold: shared contract for parallel agents (Phase 4)
 
-Project: "/home/kls-sce/Age of Gold: Mansa Musa's Legacy/Age of Gold Game" (call it P). Read `P/CLAUDE.md` first.
-Godot binary: `~/Godot_v4.4-stable_linux.arm64`. Design doc: `P/../AgeofGold-MansaMusa'sLegacy.md`.
+Project: "/home/kls-sce/Age of Gold: Mansa Musa's Legacy" (call it P). Read `P/CLAUDE.md` first.
+Godot binary: `~/Godot_v4.4-stable_linux.arm64`. Design doc: `P/AgeofGold-MansaMusa'sLegacy.md`.
 
 Several agents build in parallel. **Edit only the files you own.** If you need a change in a file you
 don't own, report it instead of making it. Keep every public signature listed here stable.

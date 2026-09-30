@@ -4,7 +4,7 @@
 Everything is generated from scratch with numpy (no samples): Karplus-Strong
 kora, modal djembe strokes, balafon mallet tones, shekere noise, an ivory
 "siwa" horn and a few metallic sounds. Output: 16-bit mono WAV at 22050 Hz in
-"Age of Gold Game/assets/audio/{music,sfx}/". Deterministic (fixed seeds).
+"assets/audio/{music,sfx}/". Deterministic (fixed seeds).
 
 Usage: python3 create_audio.py [--preview DIR]
 """
@@ -16,7 +16,7 @@ import numpy as np
 
 SR = 22050
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "Age of Gold Game", "assets", "audio")
+OUT = os.path.join(HERE, "assets", "audio")
 
 
 # --------------------------------------------------------------------------

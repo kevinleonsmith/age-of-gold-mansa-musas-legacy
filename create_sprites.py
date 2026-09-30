@@ -7,7 +7,7 @@ import random
 
 from PIL import Image, ImageDraw
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Age of Gold Game")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 SPRITES = os.path.join(ROOT, "assets", "sprites")
 TILESETS = os.path.join(ROOT, "assets", "tilesets")
 

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Generate sprites for the Phase 4 units of Age of Gold (Pillow), in the style
 of create_sprites.py: Desert Scout, Gold Gilder, Donson Ton (32x32) and the
-Golden Mansa hero (48x48). Output: Age of Gold Game/assets/units/. Deterministic."""
+Golden Mansa hero (48x48). Output: assets/units/. Deterministic."""
 import os
 
 from PIL import Image, ImageDraw
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Age of Gold Game")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(ROOT, "assets", "units")
 
 OUT = (30, 20, 12, 255)  # dark outline

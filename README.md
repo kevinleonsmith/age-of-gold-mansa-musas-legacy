@@ -13,25 +13,25 @@ A 2D historical real-time strategy prototype set in the 14th-century **Mali Empi
 
 ## Getting started
 
-Clone the repo, then generate Godot's import cache (it is intentionally **not** committed — the `.godot/` folder is gitignored):
+Clone the repo, then generate Godot's import cache (it is intentionally **not** committed — the `.godot/` folder is gitignored). Run Godot commands from the repository root (`--path .`):
 
 ```bash
-~/Godot_v4.4-stable_linux.arm64 --headless --path "Age of Gold Game" --import
+~/Godot_v4.4-stable_linux.arm64 --headless --path . --import
 ```
 
-Running headless prints harmless `progress_dialog.cpp … canceled` warnings — those are cosmetic and can be ignored. The import is complete when `Age of Gold Game/.godot/imported/` is populated.
+Running headless prints harmless `progress_dialog.cpp … canceled` warnings — those are cosmetic and can be ignored. The import is complete when `.godot/imported/` is populated.
 
 ### Run the game
 
 ```bash
 # Launch (starts at the main menu)
-~/Godot_v4.4-stable_linux.arm64 --path "Age of Gold Game"
+~/Godot_v4.4-stable_linux.arm64 --path .
 
 # Open in the editor
-~/Godot_v4.4-stable_linux.arm64 --path "Age of Gold Game" -e
+~/Godot_v4.4-stable_linux.arm64 --path . -e
 
 # Headless check that all scripts parse
-~/Godot_v4.4-stable_linux.arm64 --headless --path "Age of Gold Game" --quit
+~/Godot_v4.4-stable_linux.arm64 --headless --path . --quit
 ```
 
 The game opens on `ui/MainMenu.tscn`, offering the **Campaign** and a **mode picker**: Skirmish (`main.tscn`), Trans-Saharan Showdown, and Scholars of Sankore.
@@ -67,18 +67,19 @@ Implemented: **Mission 1** (Bambuk mines), **Mission 2** (Salt of the Sahara), *
 
 ## Project layout
 
+The Godot project lives at the repository root (`project.godot` is here):
+
 ```
-Age of Gold: Mansa Musa's Legacy/
-├─ Age of Gold Game/          # the Godot 4.4 project
-│  ├─ autoload/               # singletons: GameData, EconomyManager, TechManager, …
-│  ├─ ai/                     # AI empires, controllers, rival mode base
-│  ├─ buildings/ entities/    # buildings and units
-│  ├─ missions/ modes/        # campaign missions and game modes
-│  ├─ rival/ systems/ ui/     # rival faction, systems, and UI
-│  ├─ assets/                 # generated PNG + WAV assets (do not hand-edit)
-│  ├─ tests/                  # headless SceneTree test suites (+ CONTRACT.md)
-│  ├─ main.tscn               # skirmish scene
-│  └─ project.godot
+Age of Gold: Mansa Musa's Legacy/   # repo root == Godot project root
+├─ project.godot
+├─ main.tscn                  # skirmish scene
+├─ autoload/                  # singletons: GameData, EconomyManager, TechManager, …
+├─ ai/                        # AI empires, controllers, rival mode base
+├─ buildings/ entities/       # buildings and units
+├─ missions/ modes/           # campaign missions and game modes
+├─ rival/ systems/ ui/        # rival faction, systems, and UI
+├─ assets/                    # generated PNG + WAV assets (do not hand-edit)
+├─ tests/                     # headless SceneTree test suites (+ CONTRACT.md)
 ├─ create_*.py                # seeded asset generators (Pillow / numpy)
 ├─ *.md                       # design docs and event scripts
 └─ LICENSE                    # Apache 2.0
@@ -86,15 +87,15 @@ Age of Gold: Mansa Musa's Legacy/
 
 ### Autoload singletons
 
-`GameData`, `AgeManager`, `TechManager`, `EconomyManager`, `DilemmaManager`, `VictoryManager`, `AudioManager`, `GameSession`, `SaveManager`. See `Age of Gold Game/tests/CONTRACT.md` for their public APIs — it is the source of truth for shared systems.
+`GameData`, `AgeManager`, `TechManager`, `EconomyManager`, `DilemmaManager`, `VictoryManager`, `AudioManager`, `GameSession`, `SaveManager`. See `tests/CONTRACT.md` for their public APIs — it is the source of truth for shared systems.
 
 ## Assets
 
-Every PNG and WAV under `Age of Gold Game/assets/` is produced by a seeded generator script (`create_*.py`) using Pillow/numpy — **never hand-edit a generated asset**. To change one, edit its script, re-run it, then re-import:
+Every PNG and WAV under `assets/` is produced by a seeded generator script (`create_*.py`) using Pillow/numpy — **never hand-edit a generated asset**. To change one, edit its script, re-run it, then re-import:
 
 ```bash
 python3 create_<name>.py
-~/Godot_v4.4-stable_linux.arm64 --headless --path "Age of Gold Game" --import
+~/Godot_v4.4-stable_linux.arm64 --headless --path . --import
 ```
 
 ## Tests
@@ -102,7 +103,7 @@ python3 create_<name>.py
 There is no build system or linter. Tests are headless SceneTree scripts covering combat, economy, tech, events, conversion, campaign, rival modes, and more:
 
 ```bash
-cd "Age of Gold Game"
+# from the repository root
 bash tests/run_all.sh          # all suites (~1 min)
 
 # run a single suite

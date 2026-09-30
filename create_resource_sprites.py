@@ -3,8 +3,8 @@
 Deterministic (seeded).
 
 Writes:
-  Age of Gold Game/assets/ui/        gold_icon.png, salt_icon.png, manuscript_icon.png (24x24 HUD icons)
-  Age of Gold Game/assets/resources/ gold_mine.png, salt_deposit.png, manuscript_cache.png (64x64 map sprites)
+  assets/ui/        gold_icon.png, salt_icon.png, manuscript_icon.png (24x24 HUD icons)
+  assets/resources/ gold_mine.png, salt_deposit.png, manuscript_cache.png (64x64 map sprites)
 
 The ingot HUD icon reuses assets/economy/ingot_icon.png (create_economy_sprites.py).
 Style follows create_sprites.py / create_building_sprites.py: dark outline,
@@ -15,7 +15,7 @@ import random
 
 from PIL import Image, ImageDraw
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Age of Gold Game")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 UI_DIR = os.path.join(ROOT, "assets", "ui")
 RES_DIR = os.path.join(ROOT, "assets", "resources")
 

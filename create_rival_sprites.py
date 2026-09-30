@@ -2,7 +2,7 @@
 """Generate pixel-art sprites for the Songhai rival faction of the Age of Gold
 Godot project (Pillow). Deterministic (seeded).
 
-Writes to "Age of Gold Game/assets/rival/":
+Writes to "assets/rival/":
   war_camp.png (96x80)       Sahelian war camp: palisade, hide tents, banner
   gao_palace.png (144x128)   Songhai palace at Gao (Rival Wonder)
 
@@ -20,7 +20,7 @@ from PIL import Image, ImageDraw
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import create_building_sprites as cb  # noqa: E402
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Age of Gold Game")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(ROOT, "assets", "rival")
 
 OUT = cb.OUT

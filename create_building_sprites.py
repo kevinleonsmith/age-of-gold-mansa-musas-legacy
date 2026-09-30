@@ -2,7 +2,7 @@
 """Generate pixel-art Sudanese mud-architecture building sprites for the
 Age of Gold Godot project (Pillow). Deterministic (seeded).
 
-Writes to "Age of Gold Game/assets/buildings/":
+Writes to "assets/buildings/":
   house.png (64x64), mosque.png (96x96), market.png (80x64),
   outpost.png (80x80), great_mosque.png (128x128), salt_cathedral.png (128x128)
 
@@ -15,7 +15,7 @@ import random
 
 from PIL import Image, ImageDraw
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Age of Gold Game")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(ROOT, "assets", "buildings")
 
 OUT = (30, 20, 12, 255)  # dark outline (same as create_sprites.py)

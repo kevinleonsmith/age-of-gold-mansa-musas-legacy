@@ -11,7 +11,7 @@ import random
 
 from PIL import Image, ImageDraw, ImageFilter
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Age of Gold Game")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(ROOT, "assets", "menu")
 
 W, H = 1152, 648

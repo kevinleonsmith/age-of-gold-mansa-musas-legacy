@@ -2,7 +2,7 @@
 """Generate pixel-art sprites for the AI rival empires of the Age of Gold
 Godot project (Showdown / Scholars modes). Pillow, deterministic (seeded).
 
-Writes to "Age of Gold Game/assets/ai/":
+Writes to "assets/ai/":
   banner_songhai.png, banner_mossi.png, banner_tuareg.png (48x80)
       Empire standards planted at each AI capital.
   ai_worker.png (32x32)
@@ -28,7 +28,7 @@ from PIL import Image, ImageDraw
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import create_building_sprites as cb  # noqa: E402
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Age of Gold Game")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(ROOT, "assets", "ai")
 
 OUT = cb.OUT
