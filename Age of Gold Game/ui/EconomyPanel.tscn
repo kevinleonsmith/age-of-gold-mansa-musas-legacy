@@ -1,0 +1,118 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq3ecpnl7m4xa"]
+
+[ext_resource type="Script" path="res://ui/EconomyPanel.gd" id="1_epscr"]
+[ext_resource type="Texture2D" path="res://assets/economy/ingot_icon.png" id="2_epingot"]
+
+[node name="EconomyPanel" type="CanvasLayer"]
+script = ExtResource("1_epscr")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -350.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 60.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.3, 1)
+text = "Treasury of Mali"
+horizontal_alignment = 1
+
+[node name="StatsRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="IngotIcon" type="TextureRect" parent="Panel/VBox/StatsRow"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_epingot")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="IngotLabel" type="Label" parent="Panel/VBox/StatsRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+mouse_filter = 2
+text = "0 Ingots"
+
+[node name="RivalLabel" type="Label" parent="Panel/VBox/StatsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+text = "Rivals: 5000 gold"
+horizontal_alignment = 2
+
+[node name="PriceLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "Gold price x1.00 - Stable"
+
+[node name="PriceMeter" type="ProgressBar" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+mouse_filter = 2
+min_value = 1.0
+max_value = 3.0
+step = 0.01
+value = 1.0
+show_percentage = false
+
+[node name="MintButton" type="Button" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Mint Ingot (100 Gold)"
+
+[node name="CaravanButton" type="Button" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Send Caravan (60 Gold)"
+
+[node name="DistributeButton" type="Button" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Distribute Gold (200)"
+
+[node name="SellButton" type="Button" parent="Panel/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_mode = 0
+text = "Sell Manuscript (200 Gold)"
+
+[node name="Banner" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.25, 0.1, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 44
+text = "Rival treasuries collapse!"
+horizontal_alignment = 1
+vertical_alignment = 1

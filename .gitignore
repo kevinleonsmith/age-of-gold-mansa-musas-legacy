@@ -1,0 +1,19 @@
+# Godot 4+ engine cache / import data
+.godot/
+
+# Godot export output
+export_presets.cfg
+/build/
+/exports/
+
+# Python (asset generator scripts)
+__pycache__/
+*.py[cod]
+
+# Claude Code local settings
+.claude/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp

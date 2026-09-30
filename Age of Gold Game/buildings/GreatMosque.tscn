@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgr8tm0sq2e8a"]
+
+[ext_resource type="Script" path="res://buildings/Mosque.gd" id="1_bscr"]
+[ext_resource type="Texture2D" path="res://assets/buildings/great_mosque.png" id="2_btex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_great_mosque"]
+size = Vector2(124, 36)
+
+[node name="GreatMosque" type="StaticBody2D"]
+script = ExtResource("1_bscr")
+building_type = "great_mosque"
+max_health = 800.0
+is_wonder = true
+manuscript_interval = 90.0
+heals_allies = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+texture = ExtResource("2_btex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_great_mosque")

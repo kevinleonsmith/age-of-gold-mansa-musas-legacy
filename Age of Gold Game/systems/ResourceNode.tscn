@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr5nd3kq8wz1v"]
+
+[ext_resource type="Script" uid="uid://bmrf5xp36ka8a" path="res://systems/ResourceNode.gd" id="1_rnscr"]
+[ext_resource type="Texture2D" path="res://assets/resources/gold_mine.png" id="2_rntex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rn01"]
+size = Vector2(64, 64)
+
+[node name="ResourceNode" type="Area2D"]
+script = ExtResource("1_rnscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rntex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rn01")

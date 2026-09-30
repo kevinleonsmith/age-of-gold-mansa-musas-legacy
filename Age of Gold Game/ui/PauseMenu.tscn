@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8pausem2ag3q"]
+
+[ext_resource type="Script" path="res://ui/PauseMenu.gd" id="1_pausemenu"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 30
+script = ExtResource("1_pausemenu")

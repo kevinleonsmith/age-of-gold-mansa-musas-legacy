@@ -1,0 +1,116 @@
+[gd_scene load_steps=23 format=3 uid="uid://c7m1ss10nhajj"]
+
+[ext_resource type="Script" path="res://missions/Mission7.gd" id="1_m7scr"]
+[ext_resource type="TileSet" path="res://assets/tilesets/terrain.tres" id="2_m7ter"]
+[ext_resource type="Script" uid="uid://d0tfadg7l5wxl" path="res://systems/TerrainFiller.gd" id="3_m7fill"]
+[ext_resource type="PackedScene" uid="uid://dr5nd3kq8wz1v" path="res://systems/ResourceNode.tscn" id="4_m7res"]
+[ext_resource type="PackedScene" uid="uid://dcm4rkc1tyn7w" path="res://missions/CityMarker.tscn" id="5_m7city"]
+[ext_resource type="Texture2D" path="res://assets/missions/city_niani.png" id="6_m7niani"]
+[ext_resource type="Texture2D" path="res://assets/missions/city_walata.png" id="7_m7walata"]
+[ext_resource type="Texture2D" path="res://assets/missions/city_cairo.png" id="8_m7cairo"]
+[ext_resource type="Texture2D" path="res://assets/missions/city_mecca.png" id="9_m7mecca"]
+[ext_resource type="PackedScene" uid="uid://bhj4cvn8x2mqa" path="res://missions/HajjCaravan.tscn" id="10_m7hajj"]
+[ext_resource type="PackedScene" uid="uid://c7pl4yr2nq8ma" path="res://entities/Player.tscn" id="11_m7ply"]
+[ext_resource type="PackedScene" uid="uid://cgu4i8mrx2p0h" path="res://ui/GameUI.tscn" id="12_m7ui"]
+[ext_resource type="PackedScene" uid="uid://bbu1ldm3nu4x2" path="res://ui/BuildMenu.tscn" id="13_m7bld"]
+[ext_resource type="PackedScene" uid="uid://c7tpn4lq2k8xa" path="res://ui/TechPanel.tscn" id="14_m7tch"]
+[ext_resource type="PackedScene" uid="uid://dq3ecpnl7m4xa" path="res://ui/EconomyPanel.tscn" id="15_m7eco"]
+[ext_resource type="PackedScene" uid="uid://c4t0a5tev7ms1" path="res://ui/Toasts.tscn" id="16_m7tst"]
+[ext_resource type="PackedScene" uid="uid://bd1lemd1a7og2" path="res://ui/DilemmaDialog.tscn" id="17_m7dil"]
+[ext_resource type="PackedScene" uid="uid://cu4nm3nu7trk2" path="res://ui/UnitMenu.tscn" id="18_unitm"]
+[ext_resource type="PackedScene" uid="uid://c8objhud5ag7w" path="res://ui/ObjectivesHUD.tscn" id="19_objhd"]
+[ext_resource type="PackedScene" uid="uid://c8pausem2ag3q" path="res://ui/PauseMenu.tscn" id="20_pausm"]
+[ext_resource type="PackedScene" uid="uid://c8endscr7ag1x" path="res://ui/EndScreen.tscn" id="21_endsc"]
+
+[node name="Mission7" type="Node2D"]
+script = ExtResource("1_m7scr")
+
+[node name="TerrainFiller" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_m7ter")
+script = ExtResource("3_m7fill")
+fill_origin = Vector2i(-8, -10)
+fill_size = Vector2i(96, 20)
+seed_value = 1324
+
+[node name="Resources" type="Node2D" parent="."]
+
+[node name="SaltDeposit" parent="Resources" instance=ExtResource("4_m7res")]
+position = Vector2(-150, 250)
+resource_type = 1
+quantity = 200
+
+[node name="ManuscriptCache" parent="Resources" instance=ExtResource("4_m7res")]
+position = Vector2(3300, 420)
+resource_type = 2
+
+[node name="Cities" type="Node2D" parent="."]
+
+[node name="Niani" parent="Cities" instance=ExtResource("5_m7city")]
+position = Vector2(-60, -60)
+city_name = "Niani"
+texture = ExtResource("6_m7niani")
+
+[node name="Walata" parent="Cities" instance=ExtResource("5_m7city")]
+position = Vector2(1500, -330)
+city_name = "Walata"
+texture = ExtResource("7_m7walata")
+
+[node name="Cairo" parent="Cities" instance=ExtResource("5_m7city")]
+position = Vector2(3300, 60)
+city_name = "Cairo"
+texture = ExtResource("8_m7cairo")
+
+[node name="Mecca" parent="Cities" instance=ExtResource("5_m7city")]
+position = Vector2(5000, -190)
+city_name = "Mecca"
+texture = ExtResource("9_m7mecca")
+
+[node name="Route" type="Node2D" parent="."]
+
+[node name="Leg1" type="Marker2D" parent="Route"]
+position = Vector2(750, -120)
+
+[node name="Walata" type="Marker2D" parent="Route"]
+position = Vector2(1500, -250)
+
+[node name="Leg2" type="Marker2D" parent="Route"]
+position = Vector2(2350, -60)
+
+[node name="Cairo" type="Marker2D" parent="Route"]
+position = Vector2(3300, 140)
+
+[node name="Leg3" type="Marker2D" parent="Route"]
+position = Vector2(4150, 40)
+
+[node name="Mecca" type="Marker2D" parent="Route"]
+position = Vector2(5000, -110)
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="HajjCaravan" parent="." instance=ExtResource("10_m7hajj")]
+position = Vector2(120, 30)
+
+[node name="Player" parent="." instance=ExtResource("11_m7ply")]
+position = Vector2(200, 110)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="GameUI" parent="." instance=ExtResource("12_m7ui")]
+
+[node name="BuildMenu" parent="." instance=ExtResource("13_m7bld")]
+
+[node name="TechPanel" parent="." instance=ExtResource("14_m7tch")]
+
+[node name="EconomyPanel" parent="." instance=ExtResource("15_m7eco")]
+
+[node name="Toasts" parent="." instance=ExtResource("16_m7tst")]
+
+[node name="DilemmaDialog" parent="." instance=ExtResource("17_m7dil")]
+
+[node name="UnitMenu" parent="." instance=ExtResource("18_unitm")]
+
+[node name="ObjectivesHUD" parent="." instance=ExtResource("19_objhd")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("20_pausm")]
+
+[node name="EndScreen" parent="." instance=ExtResource("21_endsc")]

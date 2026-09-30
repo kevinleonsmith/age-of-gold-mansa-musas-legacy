@@ -1,0 +1,163 @@
+[gd_scene load_steps=20 format=3 uid="uid://cshwdn7ai3mq1"]
+
+[ext_resource type="Script" path="res://modes/Showdown.gd" id="1_sh1"]
+[ext_resource type="TileSet" path="res://assets/tilesets/terrain.tres" id="2_sh2"]
+[ext_resource type="Script" uid="uid://d0tfadg7l5wxl" path="res://systems/TerrainFiller.gd" id="3_sh3"]
+[ext_resource type="PackedScene" uid="uid://dr5nd3kq8wz1v" path="res://systems/ResourceNode.tscn" id="4_sh4"]
+[ext_resource type="PackedScene" uid="uid://c7pl4yr2nq8ma" path="res://entities/Player.tscn" id="5_sh5"]
+[ext_resource type="Script" path="res://ai/AIEmpire.gd" id="6_sh6"]
+[ext_resource type="Script" path="res://ai/NodeControl.gd" id="7_sh7"]
+[ext_resource type="PackedScene" uid="uid://c5ndst0rm7x2q" path="res://systems/Sandstorm.tscn" id="8_sh8"]
+[ext_resource type="PackedScene" uid="uid://cgu4i8mrx2p0h" path="res://ui/GameUI.tscn" id="9_sh9"]
+[ext_resource type="PackedScene" uid="uid://bbu1ldm3nu4x2" path="res://ui/BuildMenu.tscn" id="10_sh10"]
+[ext_resource type="PackedScene" uid="uid://c7tpn4lq2k8xa" path="res://ui/TechPanel.tscn" id="11_sh11"]
+[ext_resource type="PackedScene" uid="uid://dq3ecpnl7m4xa" path="res://ui/EconomyPanel.tscn" id="12_sh12"]
+[ext_resource type="PackedScene" uid="uid://c4t0a5tev7ms1" path="res://ui/Toasts.tscn" id="13_sh13"]
+[ext_resource type="PackedScene" uid="uid://bd1lemd1a7og2" path="res://ui/DilemmaDialog.tscn" id="14_sh14"]
+[ext_resource type="PackedScene" uid="uid://cu4nm3nu7trk2" path="res://ui/UnitMenu.tscn" id="15_sh15"]
+[ext_resource type="PackedScene" uid="uid://c8objhud5ag7w" path="res://ui/ObjectivesHUD.tscn" id="16_sh16"]
+[ext_resource type="PackedScene" uid="uid://c8pausem2ag3q" path="res://ui/PauseMenu.tscn" id="17_sh17"]
+[ext_resource type="PackedScene" uid="uid://c8endscr7ag1x" path="res://ui/EndScreen.tscn" id="18_sh18"]
+[ext_resource type="PackedScene" uid="uid://b6scrbrd4ai2k" path="res://ui/Scoreboard.tscn" id="19_sh19"]
+
+[node name="Showdown" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_sh1")
+
+[node name="TerrainFiller" type="TileMapLayer" parent="."]
+z_index = -10
+tile_set = ExtResource("2_sh2")
+script = ExtResource("3_sh3")
+fill_origin = Vector2i(-6, -6)
+fill_size = Vector2i(62, 47)
+seed_value = 1591
+
+[node name="Resources" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="GoldSW" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(680, 1900)
+resource_type = 0
+quantity = 3000
+
+[node name="GoldNW" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(680, 520)
+resource_type = 0
+quantity = 3000
+
+[node name="GoldNE" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(2520, 520)
+resource_type = 0
+quantity = 3000
+
+[node name="GoldSE" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(2520, 1900)
+resource_type = 0
+quantity = 3000
+
+[node name="GoldCenter" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(1600, 1210)
+resource_type = 0
+quantity = 4000
+
+[node name="SaltNorth" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(1600, 380)
+resource_type = 1
+quantity = 2000
+
+[node name="SaltSouth" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(1600, 2040)
+resource_type = 1
+quantity = 2000
+
+[node name="SaltWest" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(420, 1210)
+resource_type = 1
+quantity = 2000
+
+[node name="SaltEast" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(2780, 1210)
+resource_type = 1
+quantity = 2000
+
+[node name="GoldInnerNW" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(1120, 820)
+resource_type = 0
+quantity = 3000
+
+[node name="SaltInnerNE" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(2080, 820)
+resource_type = 1
+quantity = 2000
+
+[node name="SaltInnerSW" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(1120, 1600)
+resource_type = 1
+quantity = 2000
+
+[node name="GoldInnerSE" parent="Resources" instance=ExtResource("4_sh4")]
+position = Vector2(2080, 1600)
+resource_type = 0
+quantity = 3000
+
+[node name="Buildings" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Caravans" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Allies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="AIBases" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("5_sh5")]
+position = Vector2(400, 2080)
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="NodeControl" type="Node" parent="."]
+script = ExtResource("7_sh7")
+
+[node name="Empires" type="Node" parent="."]
+
+[node name="Songhai" type="Node" parent="Empires"]
+script = ExtResource("6_sh6")
+empire_id = 1
+home_position = Vector2(380, 320)
+
+[node name="Mossi" type="Node" parent="Empires"]
+script = ExtResource("6_sh6")
+empire_id = 2
+home_position = Vector2(2820, 320)
+
+[node name="Tuareg" type="Node" parent="Empires"]
+script = ExtResource("6_sh6")
+empire_id = 3
+home_position = Vector2(2820, 2100)
+
+[node name="Sandstorm" parent="." instance=ExtResource("8_sh8")]
+
+[node name="GameUI" parent="." instance=ExtResource("9_sh9")]
+
+[node name="BuildMenu" parent="." instance=ExtResource("10_sh10")]
+
+[node name="TechPanel" parent="." instance=ExtResource("11_sh11")]
+
+[node name="EconomyPanel" parent="." instance=ExtResource("12_sh12")]
+
+[node name="Toasts" parent="." instance=ExtResource("13_sh13")]
+
+[node name="DilemmaDialog" parent="." instance=ExtResource("14_sh14")]
+
+[node name="UnitMenu" parent="." instance=ExtResource("15_sh15")]
+
+[node name="ObjectivesHUD" parent="." instance=ExtResource("16_sh16")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("17_sh17")]
+
+[node name="EndScreen" parent="." instance=ExtResource("18_sh18")]
+
+[node name="Scoreboard" parent="." instance=ExtResource("19_sh19")]

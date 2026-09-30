@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8objhud5ag7w"]
+
+[ext_resource type="Script" path="res://ui/ObjectivesHUD.gd" id="1_objectiveshud"]
+
+[node name="ObjectivesHUD" type="CanvasLayer"]
+layer = 4
+script = ExtResource("1_objectiveshud")

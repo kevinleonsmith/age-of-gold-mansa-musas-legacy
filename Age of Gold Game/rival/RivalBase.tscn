@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk2rvbase8mso"]
+
+[ext_resource type="PackedScene" uid="uid://bq7rvwond3gao" path="res://rival/RivalWonder.tscn" id="1_rvwon"]
+[ext_resource type="PackedScene" uid="uid://c5rvcamp7w2qa" path="res://rival/WarCamp.tscn" id="2_rvcmp"]
+[ext_resource type="PackedScene" uid="uid://b3en7aiq2kx5d" path="res://entities/EnemyAI.tscn" id="3_rvenm"]
+
+[node name="RivalBase" type="Node2D"]
+
+[node name="GaoPalace" parent="." instance=ExtResource("1_rvwon")]
+
+[node name="WarCampWest" parent="." instance=ExtResource("2_rvcmp")]
+position = Vector2(-240, 150)
+
+[node name="WarCampSouth" parent="." instance=ExtResource("2_rvcmp")]
+position = Vector2(60, 260)
+
+[node name="Guards" type="Node2D" parent="."]
+
+[node name="Guard1" parent="Guards" instance=ExtResource("3_rvenm")]
+position = Vector2(-70, 70)
+patrol_range = 90.0
+is_guard = true
+
+[node name="Guard2" parent="Guards" instance=ExtResource("3_rvenm")]
+position = Vector2(70, 70)
+patrol_range = 90.0
+is_guard = true
+
+[node name="Guard3" parent="Guards" instance=ExtResource("3_rvenm")]
+position = Vector2(-120, 150)
+patrol_range = 90.0
+is_guard = true

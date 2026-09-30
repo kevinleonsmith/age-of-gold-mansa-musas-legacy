@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3aiwk7rq2mzd"]
+
+[ext_resource type="Script" path="res://ai/AIWorker.gd" id="1_aiwks"]
+[ext_resource type="Texture2D" path="res://assets/ai/ai_worker.png" id="2_aiwkb"]
+[ext_resource type="Texture2D" path="res://assets/ai/ai_worker_robe.png" id="3_aiwkr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aiwk"]
+radius = 12.0
+
+[node name="AIWorker" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_aiwks")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_aiwkb")
+
+[node name="Robe" type="Sprite2D" parent="."]
+texture = ExtResource("3_aiwkr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aiwk")

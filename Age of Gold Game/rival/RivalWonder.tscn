@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq7rvwond3gao"]
+
+[ext_resource type="Script" path="res://rival/RivalBuilding.gd" id="1_rvscr"]
+[ext_resource type="Texture2D" path="res://assets/rival/gao_palace.png" id="2_rvgao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvwond"]
+size = Vector2(52, 36)
+
+[node name="RivalWonder" type="CharacterBody2D"]
+script = ExtResource("1_rvscr")
+building_kind = "wonder"
+max_health = 1200.0
+bounty = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -37)
+texture = ExtResource("2_rvgao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rvwond")

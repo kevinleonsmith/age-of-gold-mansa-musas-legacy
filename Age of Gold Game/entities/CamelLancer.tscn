@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcm1lnc8r4t2w"]
+
+[ext_resource type="Script" uid="uid://dt2jv77lomjut" path="res://entities/CamelLancer.gd" id="1_clscr"]
+[ext_resource type="Texture2D" uid="uid://bdid7jwe3nsru" path="res://assets/sprites/camel_lancer.png" id="2_cltex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cl01"]
+size = Vector2(28, 28)
+
+[node name="CamelLancer" type="CharacterBody2D"]
+script = ExtResource("1_clscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cltex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cl01")

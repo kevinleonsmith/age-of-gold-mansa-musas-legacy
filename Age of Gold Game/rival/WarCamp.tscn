@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5rvcamp7w2qa"]
+
+[ext_resource type="Script" path="res://rival/RivalBuilding.gd" id="1_rvscr"]
+[ext_resource type="Texture2D" path="res://assets/rival/war_camp.png" id="2_rvcmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvcamp"]
+size = Vector2(44, 32)
+
+[node name="WarCamp" type="CharacterBody2D"]
+script = ExtResource("1_rvscr")
+building_kind = "camp"
+max_health = 400.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+texture = ExtResource("2_rvcmp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rvcamp")

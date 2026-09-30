@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://e2gmns9hro4vx"]
+
+[ext_resource type="Script" path="res://entities/GoldenMansa.gd" id="1_goldenmansascr"]
+[ext_resource type="Texture2D" path="res://assets/units/golden_mansa.png" id="2_goldenmansatex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goldenmansa"]
+radius = 20.0
+
+[node name="GoldenMansa" type="CharacterBody2D"]
+script = ExtResource("1_goldenmansascr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_goldenmansatex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_goldenmansa")

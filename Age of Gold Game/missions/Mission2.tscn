@@ -1,0 +1,102 @@
+[gd_scene load_steps=18 format=3 uid="uid://b2m1ss10nsa2t"]
+
+[ext_resource type="Script" path="res://missions/Mission2.gd" id="1_m2scr"]
+[ext_resource type="TileSet" path="res://assets/tilesets/terrain.tres" id="2_m2ter"]
+[ext_resource type="Script" uid="uid://d0tfadg7l5wxl" path="res://systems/TerrainFiller.gd" id="3_m2fill"]
+[ext_resource type="PackedScene" uid="uid://dr5nd3kq8wz1v" path="res://systems/ResourceNode.tscn" id="4_m2res"]
+[ext_resource type="PackedScene" uid="uid://b8tpost3k1wq5" path="res://systems/TradePost.tscn" id="5_m2trd"]
+[ext_resource type="PackedScene" uid="uid://c7pl4yr2nq8ma" path="res://entities/Player.tscn" id="6_m2ply"]
+[ext_resource type="PackedScene" uid="uid://c5ndst0rm7x2q" path="res://systems/Sandstorm.tscn" id="7_m2snd"]
+[ext_resource type="PackedScene" uid="uid://cgu4i8mrx2p0h" path="res://ui/GameUI.tscn" id="8_m2ui"]
+[ext_resource type="PackedScene" uid="uid://bbu1ldm3nu4x2" path="res://ui/BuildMenu.tscn" id="9_m2bld"]
+[ext_resource type="PackedScene" uid="uid://c7tpn4lq2k8xa" path="res://ui/TechPanel.tscn" id="10_m2tch"]
+[ext_resource type="PackedScene" uid="uid://dq3ecpnl7m4xa" path="res://ui/EconomyPanel.tscn" id="11_m2eco"]
+[ext_resource type="PackedScene" uid="uid://c4t0a5tev7ms1" path="res://ui/Toasts.tscn" id="12_m2tst"]
+[ext_resource type="PackedScene" uid="uid://bd1lemd1a7og2" path="res://ui/DilemmaDialog.tscn" id="13_m2dil"]
+[ext_resource type="PackedScene" uid="uid://cu4nm3nu7trk2" path="res://ui/UnitMenu.tscn" id="14_unitm"]
+[ext_resource type="PackedScene" uid="uid://c8objhud5ag7w" path="res://ui/ObjectivesHUD.tscn" id="15_objhd"]
+[ext_resource type="PackedScene" uid="uid://c8pausem2ag3q" path="res://ui/PauseMenu.tscn" id="16_pausm"]
+[ext_resource type="PackedScene" uid="uid://c8endscr7ag1x" path="res://ui/EndScreen.tscn" id="17_endsc"]
+
+[node name="Mission2" type="Node2D"]
+script = ExtResource("1_m2scr")
+
+[node name="TerrainFiller" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_m2ter")
+script = ExtResource("3_m2fill")
+fill_origin = Vector2i(-8, -9)
+fill_size = Vector2i(54, 27)
+seed_value = 1352
+
+[node name="Resources" type="Node2D" parent="."]
+
+[node name="SaltDeposit" parent="Resources" instance=ExtResource("4_m2res")]
+position = Vector2(-160, 220)
+resource_type = 1
+quantity = 300
+
+[node name="GoldMine" parent="Resources" instance=ExtResource("4_m2res")]
+position = Vector2(260, -230)
+resource_type = 0
+quantity = 300
+
+[node name="OasisGold" parent="Resources" instance=ExtResource("4_m2res")]
+position = Vector2(1300, 420)
+resource_type = 0
+quantity = 200
+
+[node name="TradePosts" type="Node2D" parent="."]
+
+[node name="Taghaza" parent="TradePosts" instance=ExtResource("5_m2trd")]
+position = Vector2(0, 0)
+post_name = "Taghaza"
+trade_good = "salt"
+
+[node name="Walata" parent="TradePosts" instance=ExtResource("5_m2trd")]
+position = Vector2(2600, 500)
+post_name = "Walata"
+trade_good = "gold"
+
+[node name="Route" type="Node2D" parent="."]
+
+[node name="Waypoint1" type="Marker2D" parent="Route"]
+position = Vector2(700, -150)
+
+[node name="Waypoint2" type="Marker2D" parent="Route"]
+position = Vector2(1400, 120)
+
+[node name="Waypoint3" type="Marker2D" parent="Route"]
+position = Vector2(2000, 480)
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="Caravans" type="Node2D" parent="."]
+
+[node name="Allies" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("6_m2ply")]
+position = Vector2(160, 120)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Sandstorm" parent="." instance=ExtResource("7_m2snd")]
+
+[node name="GameUI" parent="." instance=ExtResource("8_m2ui")]
+
+[node name="BuildMenu" parent="." instance=ExtResource("9_m2bld")]
+
+[node name="TechPanel" parent="." instance=ExtResource("10_m2tch")]
+
+[node name="EconomyPanel" parent="." instance=ExtResource("11_m2eco")]
+
+[node name="Toasts" parent="." instance=ExtResource("12_m2tst")]
+
+[node name="DilemmaDialog" parent="." instance=ExtResource("13_m2dil")]
+
+[node name="UnitMenu" parent="." instance=ExtResource("14_unitm")]
+
+[node name="ObjectivesHUD" parent="." instance=ExtResource("15_objhd")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("16_pausm")]
+
+[node name="EndScreen" parent="." instance=ExtResource("17_endsc")]

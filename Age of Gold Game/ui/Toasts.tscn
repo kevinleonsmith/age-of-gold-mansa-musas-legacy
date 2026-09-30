@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4t0a5tev7ms1"]
+
+[ext_resource type="Script" path="res://ui/Toasts.gd" id="1_tstscr"]
+
+[node name="Toasts" type="CanvasLayer"]
+process_mode = 3
+layer = 15
+script = ExtResource("1_tstscr")
+
+[node name="Stack" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 2

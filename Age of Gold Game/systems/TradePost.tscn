@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8tpost3k1wq5"]
+
+[ext_resource type="Script" path="res://systems/TradePost.gd" id="1_tpscr"]
+[ext_resource type="Texture2D" path="res://assets/economy/trade_post.png" id="2_tptex"]
+
+[node name="TradePost" type="Node2D"]
+script = ExtResource("1_tpscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("2_tptex")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -70.0
+offset_top = 10.0
+offset_right = 70.0
+offset_bottom = 33.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_colors/font_outline_color = Color(0.15, 0.08, 0.02, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "Walata (Gold)"
+horizontal_alignment = 1

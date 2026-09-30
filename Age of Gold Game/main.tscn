@@ -1,0 +1,91 @@
+[gd_scene load_steps=18 format=3 uid="uid://bmn4x1r7k2qwe"]
+
+[ext_resource type="TileSet" path="res://assets/tilesets/terrain.tres" id="1_mnter"]
+[ext_resource type="PackedScene" uid="uid://dr5nd3kq8wz1v" path="res://systems/ResourceNode.tscn" id="2_mnres"]
+[ext_resource type="PackedScene" uid="uid://c7pl4yr2nq8ma" path="res://entities/Player.tscn" id="3_mnply"]
+[ext_resource type="Script" uid="uid://bj5lk2tbo3nkd" path="res://systems/SpawnManager.gd" id="4_mnspm"]
+[ext_resource type="PackedScene" uid="uid://cgu4i8mrx2p0h" path="res://ui/GameUI.tscn" id="5_mnui"]
+[ext_resource type="Script" uid="uid://d0tfadg7l5wxl" path="res://systems/TerrainFiller.gd" id="6_mnfill"]
+[ext_resource type="PackedScene" uid="uid://b8tpost3k1wq5" path="res://systems/TradePost.tscn" id="7_mntrd"]
+[ext_resource type="PackedScene" uid="uid://bbu1ldm3nu4x2" path="res://ui/BuildMenu.tscn" id="8_mnbld"]
+[ext_resource type="PackedScene" uid="uid://c7tpn4lq2k8xa" path="res://ui/TechPanel.tscn" id="9_mntch"]
+[ext_resource type="PackedScene" uid="uid://dq3ecpnl7m4xa" path="res://ui/EconomyPanel.tscn" id="10_mneco"]
+[ext_resource type="PackedScene" uid="uid://bd1lemd1a7og2" path="res://ui/DilemmaDialog.tscn" id="11_mndil"]
+[ext_resource type="PackedScene" uid="uid://c4t0a5tev7ms1" path="res://ui/Toasts.tscn" id="12_mntst"]
+[ext_resource type="PackedScene" uid="uid://dk2rvbase8mso" path="res://rival/RivalBase.tscn" id="13_rival"]
+[ext_resource type="PackedScene" uid="uid://cu4nm3nu7trk2" path="res://ui/UnitMenu.tscn" id="14_unitm"]
+[ext_resource type="PackedScene" uid="uid://c8objhud5ag7w" path="res://ui/ObjectivesHUD.tscn" id="15_objhd"]
+[ext_resource type="PackedScene" uid="uid://c8pausem2ag3q" path="res://ui/PauseMenu.tscn" id="16_pausm"]
+[ext_resource type="PackedScene" uid="uid://c8endscr7ag1x" path="res://ui/EndScreen.tscn" id="17_endsc"]
+
+[node name="Main" type="Node2D"]
+
+[node name="World" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_mnter")
+script = ExtResource("6_mnfill")
+
+[node name="Resources" type="Node2D" parent="."]
+
+[node name="GoldMine" parent="Resources" instance=ExtResource("2_mnres")]
+position = Vector2(500, 200)
+resource_type = 0
+quantity = 300
+
+[node name="GoldMine2" parent="Resources" instance=ExtResource("2_mnres")]
+position = Vector2(-150, 60)
+resource_type = 0
+quantity = 300
+
+[node name="SaltDeposit" parent="Resources" instance=ExtResource("2_mnres")]
+position = Vector2(150, 450)
+resource_type = 1
+quantity = 150
+
+[node name="ManuscriptCache" parent="Resources" instance=ExtResource("2_mnres")]
+position = Vector2(650, 500)
+resource_type = 2
+
+[node name="TradePosts" type="Node2D" parent="."]
+
+[node name="Taghaza" parent="TradePosts" instance=ExtResource("7_mntrd")]
+position = Vector2(-640, -500)
+post_name = "Taghaza"
+trade_good = "salt"
+
+[node name="Walata" parent="TradePosts" instance=ExtResource("7_mntrd")]
+position = Vector2(1300, 900)
+post_name = "Walata"
+trade_good = "gold"
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_mnply")]
+position = Vector2(320, 240)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="SpawnManager" type="Node" parent="."]
+script = ExtResource("4_mnspm")
+
+[node name="GameUI" parent="." instance=ExtResource("5_mnui")]
+
+[node name="BuildMenu" parent="." instance=ExtResource("8_mnbld")]
+
+[node name="TechPanel" parent="." instance=ExtResource("9_mntch")]
+
+[node name="EconomyPanel" parent="." instance=ExtResource("10_mneco")]
+
+[node name="Toasts" parent="." instance=ExtResource("12_mntst")]
+
+[node name="DilemmaDialog" parent="." instance=ExtResource("11_mndil")]
+
+[node name="RivalBase" parent="." instance=ExtResource("13_rival")]
+position = Vector2(1500, -450)
+
+[node name="UnitMenu" parent="." instance=ExtResource("14_unitm")]
+
+[node name="ObjectivesHUD" parent="." instance=ExtResource("15_objhd")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("16_pausm")]
+
+[node name="EndScreen" parent="." instance=ExtResource("17_endsc")]

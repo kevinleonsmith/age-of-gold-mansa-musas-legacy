@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq7hs1ho5e0aa"]
+
+[ext_resource type="Script" path="res://buildings/House.gd" id="1_bscr"]
+[ext_resource type="Texture2D" path="res://assets/buildings/house.png" id="2_btex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_house"]
+size = Vector2(50, 22)
+
+[node name="House" type="StaticBody2D"]
+script = ExtResource("1_bscr")
+building_type = "house"
+max_health = 150.0
+is_wonder = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("2_btex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_house")

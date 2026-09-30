@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d5dnsn2tn7hwe"]
+
+[ext_resource type="Script" path="res://entities/DonsonTon.gd" id="1_donsontonscr"]
+[ext_resource type="Texture2D" path="res://assets/units/donson_ton.png" id="2_donsontontex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_donsonton"]
+radius = 14.0
+
+[node name="DonsonTon" type="CharacterBody2D"]
+script = ExtResource("1_donsontonscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_donsontontex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_donsonton")

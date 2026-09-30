@@ -1,0 +1,63 @@
+[gd_scene load_steps=16 format=3 uid="uid://cmi1s5n7d3vqa"]
+
+[ext_resource type="Script" uid="uid://phkqm5o2c3us" path="res://missions/Mission1.gd" id="1_m1scr"]
+[ext_resource type="TileSet" path="res://assets/tilesets/terrain.tres" id="2_m1ter"]
+[ext_resource type="PackedScene" uid="uid://c7pl4yr2nq8ma" path="res://entities/Player.tscn" id="3_m1ply"]
+[ext_resource type="PackedScene" uid="uid://cgu4i8mrx2p0h" path="res://ui/GameUI.tscn" id="4_m1ui"]
+[ext_resource type="Script" uid="uid://d0tfadg7l5wxl" path="res://systems/TerrainFiller.gd" id="5_m1fill"]
+[ext_resource type="PackedScene" uid="uid://bbu1ldm3nu4x2" path="res://ui/BuildMenu.tscn" id="6_m1bld"]
+[ext_resource type="PackedScene" uid="uid://c7tpn4lq2k8xa" path="res://ui/TechPanel.tscn" id="7_m1tch"]
+[ext_resource type="PackedScene" uid="uid://dq3ecpnl7m4xa" path="res://ui/EconomyPanel.tscn" id="8_m1eco"]
+[ext_resource type="PackedScene" uid="uid://c4t0a5tev7ms1" path="res://ui/Toasts.tscn" id="9_m1tst"]
+[ext_resource type="PackedScene" uid="uid://bd1lemd1a7og2" path="res://ui/DilemmaDialog.tscn" id="10_m1dil"]
+[ext_resource type="PackedScene" uid="uid://dr5nd3kq8wz1v" path="res://systems/ResourceNode.tscn" id="11_m1res"]
+[ext_resource type="PackedScene" uid="uid://cu4nm3nu7trk2" path="res://ui/UnitMenu.tscn" id="12_unitm"]
+[ext_resource type="PackedScene" uid="uid://c8objhud5ag7w" path="res://ui/ObjectivesHUD.tscn" id="13_objhd"]
+[ext_resource type="PackedScene" uid="uid://c8pausem2ag3q" path="res://ui/PauseMenu.tscn" id="14_pausm"]
+[ext_resource type="PackedScene" uid="uid://c8endscr7ag1x" path="res://ui/EndScreen.tscn" id="15_endsc"]
+
+[node name="Mission1" type="Node2D"]
+script = ExtResource("1_m1scr")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_m1ter")
+script = ExtResource("5_m1fill")
+fill_origin = Vector2i(-8, -8)
+fill_size = Vector2i(40, 24)
+seed_value = 1312
+
+[node name="Resources" type="Node2D" parent="."]
+
+[node name="SaltDeposit" parent="Resources" instance=ExtResource("11_m1res")]
+position = Vector2(-120, 260)
+resource_type = 1
+quantity = 150
+
+[node name="GoldMines" type="Node2D" parent="."]
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_m1ply")]
+position = Vector2(100, 100)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="GameUI" parent="." instance=ExtResource("4_m1ui")]
+
+[node name="BuildMenu" parent="." instance=ExtResource("6_m1bld")]
+
+[node name="TechPanel" parent="." instance=ExtResource("7_m1tch")]
+
+[node name="EconomyPanel" parent="." instance=ExtResource("8_m1eco")]
+
+[node name="Toasts" parent="." instance=ExtResource("9_m1tst")]
+
+[node name="DilemmaDialog" parent="." instance=ExtResource("10_m1dil")]
+
+[node name="UnitMenu" parent="." instance=ExtResource("12_unitm")]
+
+[node name="ObjectivesHUD" parent="." instance=ExtResource("13_objhd")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_pausm")]
+
+[node name="EndScreen" parent="." instance=ExtResource("15_endsc")]

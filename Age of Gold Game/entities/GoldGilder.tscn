@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3gldgr8mz5pq"]
+
+[ext_resource type="Script" path="res://entities/GoldGilder.gd" id="1_goldgilderscr"]
+[ext_resource type="Texture2D" path="res://assets/units/gold_gilder.png" id="2_goldgildertex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goldgilder"]
+radius = 13.0
+
+[node name="GoldGilder" type="CharacterBody2D"]
+script = ExtResource("1_goldgilderscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_goldgildertex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_goldgilder")

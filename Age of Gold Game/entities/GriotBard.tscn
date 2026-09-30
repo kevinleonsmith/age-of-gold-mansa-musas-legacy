@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgr9otb4rd6xk"]
+
+[ext_resource type="Script" uid="uid://onqfbbbogumq" path="res://entities/GriotBard.gd" id="1_gbscr"]
+[ext_resource type="Texture2D" uid="uid://dgoie47o6a1wj" path="res://assets/sprites/griot_bard.png" id="2_gbtex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gb01"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gb02"]
+radius = 120.0
+
+[node name="GriotBard" type="CharacterBody2D"]
+script = ExtResource("1_gbscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gbtex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gb01")
+
+[node name="MoraleBoostArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoraleBoostArea"]
+shape = SubResource("CircleShape2D_gb02")

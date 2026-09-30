@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6scrbrd4ai2k"]
+
+[ext_resource type="Script" path="res://ui/Scoreboard.gd" id="1_scbrd"]
+
+[node name="Scoreboard" type="CanvasLayer"]
+layer = 4
+script = ExtResource("1_scbrd")

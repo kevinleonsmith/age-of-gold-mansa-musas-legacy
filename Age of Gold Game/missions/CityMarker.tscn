@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcm4rkc1tyn7w"]
+
+[ext_resource type="Script" path="res://missions/CityMarker.gd" id="1_cmscr"]
+[ext_resource type="Texture2D" path="res://assets/missions/city_walata.png" id="2_cmtex"]
+
+[node name="CityMarker" type="Node2D"]
+script = ExtResource("1_cmscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_cmtex")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -90.0
+offset_top = 16.0
+offset_right = 90.0
+offset_bottom = 42.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_colors/font_outline_color = Color(0.15, 0.08, 0.02, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Walata"
+horizontal_alignment = 1

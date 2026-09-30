@@ -1,0 +1,87 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7tpn4lq2k8xa"]
+
+[ext_resource type="Script" path="res://ui/TechPanel.gd" id="1_tpscr"]
+
+[node name="TechPanel" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_tpscr")
+
+[node name="ToggleButton" type="Button" parent="."]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -40.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "Tech (T)"
+
+[node name="Panel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_top = 120.0
+offset_right = -8.0
+offset_bottom = -48.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+mouse_filter = 2
+text = "Technologies"
+horizontal_alignment = 1
+
+[node name="CurrentRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CurrentLabel" type="Label" parent="Panel/VBox/CurrentRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/font_size = 13
+text = "No research"
+clip_text = true
+
+[node name="CancelButton" type="Button" parent="Panel/VBox/CurrentRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 12
+text = "Cancel"
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+mouse_filter = 2
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="Scroll" type="ScrollContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="List" type="VBoxContainer" parent="Panel/VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 2

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ndst0rm7x2q"]
+
+[ext_resource type="Script" path="res://systems/Sandstorm.gd" id="1_ssscr"]
+
+[node name="Sandstorm" type="CanvasLayer"]
+script = ExtResource("1_ssscr")

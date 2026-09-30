@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq8ailib5nk2w"]
+
+[ext_resource type="Script" path="res://ai/AIBuilding.gd" id="1_ailbs"]
+[ext_resource type="Texture2D" path="res://assets/ai/library.png" id="2_ailbt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ailb"]
+size = Vector2(52, 32)
+
+[node name="AILibrary" type="CharacterBody2D"]
+script = ExtResource("1_ailbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("2_ailbt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ailb")

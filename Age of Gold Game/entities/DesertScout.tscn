@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7dsct4ou1ka2"]
+
+[ext_resource type="Script" path="res://entities/DesertScout.gd" id="1_desertscoutscr"]
+[ext_resource type="Texture2D" path="res://assets/units/desert_scout.png" id="2_desertscouttex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_desertscout"]
+radius = 13.0
+
+[node name="DesertScout" type="CharacterBody2D"]
+script = ExtResource("1_desertscoutscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_desertscouttex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_desertscout")

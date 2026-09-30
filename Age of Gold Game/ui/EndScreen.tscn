@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8endscr7ag1x"]
+
+[ext_resource type="Script" path="res://ui/EndScreen.gd" id="1_endscreen"]
+
+[node name="EndScreen" type="CanvasLayer"]
+process_mode = 3
+layer = 40
+script = ExtResource("1_endscreen")

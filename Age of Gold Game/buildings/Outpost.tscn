@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0utp0st7x1d6"]
+
+[ext_resource type="Script" path="res://buildings/Building.gd" id="1_bscr"]
+[ext_resource type="Texture2D" path="res://assets/buildings/outpost.png" id="2_btex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_outpost"]
+size = Vector2(70, 26)
+
+[node name="Outpost" type="StaticBody2D"]
+script = ExtResource("1_bscr")
+building_type = "outpost"
+max_health = 200.0
+is_wonder = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
+texture = ExtResource("2_btex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_outpost")

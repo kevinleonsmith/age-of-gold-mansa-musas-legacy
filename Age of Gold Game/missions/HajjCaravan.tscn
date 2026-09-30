@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhj4cvn8x2mqa"]
+
+[ext_resource type="Script" path="res://entities/Caravan.gd" id="1_hjscr"]
+[ext_resource type="Texture2D" path="res://assets/missions/hajj_caravan.png" id="2_hjtex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hj01"]
+size = Vector2(130, 40)
+
+[node name="HajjCaravan" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_hjscr")
+one_way = true
+wait_for_player_distance = 450.0
+speed_scale = 0.4
+max_health = 600.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -22)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_hjtex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hj01")

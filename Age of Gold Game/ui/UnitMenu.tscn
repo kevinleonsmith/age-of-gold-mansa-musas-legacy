@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu4nm3nu7trk2"]
+
+[ext_resource type="Script" path="res://ui/UnitMenu.gd" id="1_umscr"]
+[ext_resource type="StyleBox" path="res://ui/styles/resource_panel.tres" id="2_umpnl"]
+
+[node name="UnitMenu" type="CanvasLayer"]
+script = ExtResource("1_umscr")
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_left = 8.0
+offset_top = 122.0
+offset_right = 158.0
+offset_bottom = 162.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_umpnl")
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.3, 1)
+theme_override_font_sizes/font_size = 13
+text = "Train Units"
+horizontal_alignment = 1
+
+[node name="UnitList" type="VBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 3

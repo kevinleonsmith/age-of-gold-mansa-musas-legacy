@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbu1ldm3nu4x2"]
+
+[ext_resource type="Script" path="res://ui/BuildMenu.gd" id="1_bmscr"]
+[ext_resource type="StyleBox" path="res://ui/styles/resource_panel.tres" id="2_bmpnl"]
+
+[node name="BuildMenu" type="CanvasLayer"]
+script = ExtResource("1_bmscr")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BuildBar" type="HBoxContainer" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -60.0
+offset_right = 700.0
+offset_bottom = -10.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="PlacementHint" type="Label" parent="Root"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -92.0
+offset_right = 600.0
+offset_bottom = -66.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/normal = ExtResource("2_bmpnl")
+text = "Placing"
